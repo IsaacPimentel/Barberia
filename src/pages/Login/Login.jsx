@@ -1,5 +1,11 @@
+import Layout from "../../components/layout/Layout";
+
 function Login() {
-    return <h1>Login</h1>;
+    return (
+        <Layout>
+            <h1>Login</h1>
+        </Layout>
+    );
 }
 
 export default Login;
