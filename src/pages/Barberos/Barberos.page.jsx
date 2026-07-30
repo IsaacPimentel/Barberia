@@ -1,5 +1,5 @@
 function Barberos() {
-    return <h1>Barberos</h1>;
+    return <h1>Barberos-sdfsdf</h1>;
 }
 
 export default Barberos;
