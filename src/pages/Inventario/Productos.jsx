@@ -6,7 +6,7 @@ const products = [
 
 function Productos() {
     return (
-        <div style={{ padding: 24, borderRadius: 20, background: "#111827" }}>
+        <div style={{ padding: 24, borderRadius: 20, background: "#FFFFFF", color: "#0F172A", border: "1px solid #E2E8F0" }}>
             <h2>Productos</h2>
             <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 20 }}>
                 <thead>

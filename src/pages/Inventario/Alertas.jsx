@@ -5,12 +5,12 @@ const alerts = [
 
 function Alertas() {
     return (
-        <div style={{ padding: 24, borderRadius: 20, background: "#111827" }}>
+        <div style={{ padding: 24, borderRadius: 20, background: "#FFFFFF", color: "#0F172A", border: "1px solid #E2E8F0" }}>
             <h2>Alertas</h2>
-            <p style={{ color: "#94a3b8" }}>Productos que requieren reposición o atención inmediata.</p>
+            <p style={{ color: "#64748B" }}>Productos que requieren reposición o atención inmediata.</p>
             <div style={{ marginTop: 20, display: "grid", gap: 16 }}>
                 {alerts.map((alert) => (
-                    <div key={alert.id} style={{ padding: 16, borderRadius: 14, background: alert.stock <= alert.threshold ? "#7f1d1d" : "#1f2937" }}>
+                    <div key={alert.id} style={{ padding: 16, borderRadius: 14, background: alert.stock <= alert.threshold ? "#fee2e2" : "#F8FAFC" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
                             <strong>{alert.product}</strong>
                             <span>{alert.stock} unidades</span>

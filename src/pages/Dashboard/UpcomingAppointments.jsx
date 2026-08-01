@@ -1,6 +1,6 @@
 export default function UpcomingAppointments({ appointments }) {
     return (
-        <div className="dashboard-card" style={{ padding: 24, borderRadius: 20, background: "#111827", color: "white", marginTop: 24 }}>
+        <div className="dashboard-card" style={{ padding: 24, borderRadius: 20, background: "#FFFFFF", color: "#0F172A", marginTop: 24 }}>
             <h3>Próximas reservas</h3>
             <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 16 }}>
                 <thead>

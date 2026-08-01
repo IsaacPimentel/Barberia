@@ -26,10 +26,11 @@ return(
 
 <div
 style={{
-background:"#1F1F1F",
+background:"#FFFFFF",
 padding:20,
 borderRadius:15,
-height:350
+height:350,
+border: "1px solid #E2E8F0"
 }}
 >
 

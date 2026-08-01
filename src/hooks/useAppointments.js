@@ -14,6 +14,8 @@ const fallbackAppointments = [
         barber: "Diego",
         status: "Confirmada",
         date: new Date().toISOString().slice(0, 10) + "T09:00",
+        start: new Date().toISOString().slice(0, 10) + "T09:00",
+        end: new Date().toISOString().slice(0, 10) + "T10:00",
         price: 70,
         notes: "Llegar 5 minutos antes"
     },
@@ -24,6 +26,8 @@ const fallbackAppointments = [
         barber: "Marta",
         status: "Pendiente",
         date: new Date().toISOString().slice(0, 10) + "T11:00",
+        start: new Date().toISOString().slice(0, 10) + "T11:00",
+        end: new Date().toISOString().slice(0, 10) + "T11:45",
         price: 55,
         notes: "Usar aceite especial"
     },
@@ -34,13 +38,27 @@ const fallbackAppointments = [
         barber: "Carlos",
         status: "Completada",
         date: new Date().toISOString().slice(0, 10) + "T14:00",
+        start: new Date().toISOString().slice(0, 10) + "T14:00",
+        end: new Date().toISOString().slice(0, 10) + "T15:30",
         price: 120,
         notes: "Cliente nuevo"
+    },
+    {
+        id: 4,
+        client: "María Ruiz",
+        service: "Coloración",
+        barber: "Sofía",
+        status: "Confirmada",
+        date: new Date().toISOString().slice(0, 10) + "T16:00",
+        start: new Date().toISOString().slice(0, 10) + "T16:00",
+        end: new Date().toISOString().slice(0, 10) + "T17:30",
+        price: 150,
+        notes: "Tinte oscuro"
     }
 ];
 
 function useAppointments() {
-    const [appointments, setAppointments] = useState([]);
+    const [appointments, setAppointments] = useState(fallbackAppointments);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 

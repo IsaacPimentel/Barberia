@@ -14,7 +14,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 function ClientesTable({ clientes, onEdit, onDelete }) {
     return (
-        <TableContainer component={Paper} sx={{ bgcolor: "#111827", color: "white" }}>
+        <TableContainer component={Paper} sx={{ bgcolor: "background.paper", color: "text.primary" }}>
             <Table>
                 <TableHead>
                     <TableRow>

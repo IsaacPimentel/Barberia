@@ -47,7 +47,7 @@ function Reportes() {
 
     return (
         <Layout>
-            <Box sx={{ color: "white", display: "grid", gap: 3 }}>
+            <Box sx={{ color: "text.primary", display: "grid", gap: 3 }}>
                 <Typography variant="h4" component="h1">
                     Reportes
                 </Typography>
@@ -132,8 +132,8 @@ function Reportes() {
                     </Button>
                 </Box>
 
-                <Box sx={{ p: 3, borderRadius: 2, bgcolor: "#111827" }}>
-                    <Typography variant="subtitle2" sx={{ color: "#94a3b8", mb: 1 }}>
+                <Box sx={{ p: 3, borderRadius: 2, bgcolor: "background.paper" }}>
+                    <Typography variant="subtitle2" sx={{ color: "text.secondary", mb: 1 }}>
                         Filtros aplicados
                     </Typography>
                     <Typography>{summaryText}</Typography>

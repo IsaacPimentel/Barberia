@@ -4,8 +4,8 @@ export default function StatCard({ title, value, color }) {
   return (
     <Card
       sx={{
-        bgcolor: "#1F1F1F",
-        color: "white",
+        bgcolor: "background.paper",
+        color: "text.primary",
         borderLeft: `6px solid ${color}`,
         borderRadius: 3,
       }}

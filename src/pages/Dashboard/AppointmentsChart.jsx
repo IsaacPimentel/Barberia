@@ -2,7 +2,7 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianG
 
 export default function AppointmentsChart({ data }) {
     return (
-        <div className="dashboard-card" style={{ padding: 24, borderRadius: 20, background: "#111827", color: "white", minHeight: 360 }}>
+        <div className="dashboard-card" style={{ padding: 24, borderRadius: 20, background: "#FFFFFF", color: "#0F172A", minHeight: 360 }}>
             <h3>Citas de la semana</h3>
             <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={data} margin={{ top: 24, right: 24, left: 0, bottom: 0 }}>

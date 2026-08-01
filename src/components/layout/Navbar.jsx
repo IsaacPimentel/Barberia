@@ -17,15 +17,15 @@ export default function Navbar() {
         <AppBar
             position="static"
             sx={{
-                bgcolor: "#111827",
+                bgcolor: "background.paper",
                 boxShadow: "none",
-                borderBottom: "1px solid rgba(255,255,255,0.08)",
+                borderBottom: "1px solid rgba(15,23,42,0.08)",
                 py: 1
             }}
         >
             <Toolbar sx={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 2 }}>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                    <Typography variant="h6" sx={{ color: "#D4AF37", fontWeight: "bold", letterSpacing: 1 }}>
+                    <Typography variant="h6" sx={{ color: "primary.main", fontWeight: "bold", letterSpacing: 1 }}>
                         BARBER
                     </Typography>
                 </Box>
@@ -36,7 +36,7 @@ export default function Navbar() {
                             component={Link}
                             to={item.to}
                             sx={{
-                                color: "#ffffff",
+                                color: "text.primary",
                                 textTransform: "none",
                                 fontWeight: 500,
                                 px: 2,

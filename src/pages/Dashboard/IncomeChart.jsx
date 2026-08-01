@@ -2,7 +2,7 @@ import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGri
 
 export default function IncomeChart({ data }) {
     return (
-        <div className="dashboard-card" style={{ padding: 24, borderRadius: 20, background: "#111827", color: "white", minHeight: 360 }}>
+        <div className="dashboard-card" style={{ padding: 24, borderRadius: 20, background: "#FFFFFF", color: "#0F172A", minHeight: 360 }}>
             <h3>Ingresos Semanales</h3>
             <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={data} margin={{ top: 24, right: 24, left: 0, bottom: 0 }}>

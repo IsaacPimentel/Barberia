@@ -35,7 +35,7 @@ function Configuracion() {
 
     return (
         <Layout>
-            <Box sx={{ color: "white", display: "grid", gap: 3 }}>
+            <Box sx={{ color: "text.primary", display: "grid", gap: 3 }}>
                 <Typography variant="h4" component="h1">
                     Configuración del sistema
                 </Typography>
@@ -45,7 +45,7 @@ function Configuracion() {
 
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={8}>
-                        <Card sx={{ bgcolor: "#111827" }}>
+                        <Card sx={{ bgcolor: "background.paper" }}>
                             <CardContent>
                                 <Typography variant="h6" gutterBottom>
                                     Fase 10 - Notificaciones
@@ -113,7 +113,7 @@ function Configuracion() {
                             </CardContent>
                         </Card>
 
-                        <Card sx={{ bgcolor: "#111827", mt: 3 }}>
+                        <Card sx={{ bgcolor: "background.paper", mt: 3 }}>
                             <CardContent>
                                 <Typography variant="h6" gutterBottom>
                                     Fase 11 - Múltiples sucursales
@@ -122,12 +122,12 @@ function Configuracion() {
                                     Cada sucursal tendrá su propio conjunto de barberos, caja, inventario, agenda y reportes.
                                 </Typography>
                                 <FormControl fullWidth>
-                                    <InputLabel sx={{ color: "#cbd5e1" }}>Sucursal activa</InputLabel>
+                                    <InputLabel sx={{ color: "#64748B" }}>Sucursal activa</InputLabel>
                                     <Select
                                         value={activeBranch}
                                         label="Sucursal activa"
                                         onChange={(event) => setActiveBranch(event.target.value)}
-                                        sx={{ color: "white" }}
+                                        sx={{ color: "text.primary" }}
                                     >
                                         {branches.map((branch) => (
                                             <MenuItem key={branch} value={branch}>
@@ -147,7 +147,7 @@ function Configuracion() {
                             </CardContent>
                         </Card>
 
-                        <Card sx={{ bgcolor: "#111827", mt: 3 }}>
+                        <Card sx={{ bgcolor: "background.paper", mt: 3 }}>
                             <CardContent>
                                 <Typography variant="h6" gutterBottom>
                                     Fase 12 - Portal para clientes
@@ -191,7 +191,7 @@ function Configuracion() {
                     </Grid>
 
                     <Grid item xs={12} md={4}>
-                        <Card sx={{ bgcolor: "#111827", height: "100%" }}>
+                        <Card sx={{ bgcolor: "background.paper", height: "100%" }}>
                             <CardContent>
                                 <Typography variant="h6" gutterBottom>
                                     Resumen de configuración

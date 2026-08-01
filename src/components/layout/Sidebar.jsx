@@ -28,8 +28,8 @@ export default function Sidebar(){
             "& .MuiDrawer-paper":{
 
                 width:drawerWidth,
-                bgcolor:"#1B1B1B",
-                color:"white"
+                bgcolor:"background.paper",
+                color:"text.primary"
 
             }
         }}

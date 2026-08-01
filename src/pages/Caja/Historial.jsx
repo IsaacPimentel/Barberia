@@ -7,9 +7,9 @@ const historial = [
 
 function Historial() {
     return (
-        <div style={{ padding: 24, borderRadius: 20, background: "#111827" }}>
+        <div style={{ padding: 24, borderRadius: 20, background: "#FFFFFF", color: "#0F172A", border: "1px solid #E2E8F0" }}>
             <h2>Historial</h2>
-            <p style={{ color: "#94a3b8" }}>Registros históricos de movimientos y cierres de caja.</p>
+            <p style={{ color: "#64748B" }}>Registros históricos de movimientos y cierres de caja.</p>
             <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 20 }}>
                 <thead>
                     <tr>

@@ -19,7 +19,7 @@ function Inventario() {
 
     return (
         <Layout>
-            <div style={{ color: "white" }}>
+            <div style={{ color: "#0F172A" }}>
                 <header style={{ marginBottom: 24 }}>
                     <h1>Inventario</h1>
                     <p>Gestiona productos, compras, proveedores, movimientos y alertas.</p>
@@ -36,8 +36,8 @@ function Inventario() {
                                 borderRadius: 10,
                                 border: "none",
                                 cursor: "pointer",
-                                background: activeTab === tab.key ? "#2563eb" : "#1f2937",
-                                color: activeTab === tab.key ? "white" : "#cbd5e1"
+                                background: activeTab === tab.key ? "#2563eb" : "#E2E8F0",
+                                color: activeTab === tab.key ? "white" : "#0F172A"
                             }}
                         >
                             {tab.label}

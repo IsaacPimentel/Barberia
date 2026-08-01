@@ -18,22 +18,77 @@ function Reservas() {
         appointments,
         loading,
         error,
-        fetchAppointments,
         addAppointment,
-        editAppointment,
-        removeAppointment
+        editAppointment
     } = useAppointments();
+
+    const reservasEjemplo = [
+        {
+            id: 1,
+            client: "Juan Pérez",
+            service: "Corte clásico",
+            barber: "Diego",
+            status: "Confirmada",
+            date: new Date().toISOString().slice(0, 10) + "T09:00",
+            start: new Date().toISOString().slice(0, 10) + "T09:00",
+            end: new Date().toISOString().slice(0, 10) + "T10:00",
+            price: 70,
+            notes: "Llegar 5 minutos antes"
+        },
+        {
+            id: 2,
+            client: "Ana Gómez",
+            service: "Barba",
+            barber: "Marta",
+            status: "Pendiente",
+            date: new Date().toISOString().slice(0, 10) + "T11:00",
+            start: new Date().toISOString().slice(0, 10) + "T11:00",
+            end: new Date().toISOString().slice(0, 10) + "T11:45",
+            price: 55,
+            notes: "Usar aceite especial"
+        },
+        {
+            id: 3,
+            client: "Luis Díaz",
+            service: "Corte + Barba",
+            barber: "Carlos",
+            status: "Completada",
+            date: new Date().toISOString().slice(0, 10) + "T14:00",
+            start: new Date().toISOString().slice(0, 10) + "T14:00",
+            end: new Date().toISOString().slice(0, 10) + "T15:30",
+            price: 120,
+            notes: "Cliente nuevo"
+        },
+        {
+            id: 4,
+            client: "María Ruiz",
+            service: "Coloración",
+            barber: "Sofía",
+            status: "Confirmada",
+            date: new Date().toISOString().slice(0, 10) + "T16:00",
+            start: new Date().toISOString().slice(0, 10) + "T16:00",
+            end: new Date().toISOString().slice(0, 10) + "T17:30",
+            price: 150,
+            notes: "Tinte oscuro"
+        }
+    ];
+
+    const reservas = appointments.length ? appointments : reservasEjemplo;
 
     const [selectedAppointment, setSelectedAppointment] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
 
     const events = useMemo(
         () =>
-            appointments.map((appointment) => ({
+            reservas.map((appointment) => ({
                 id: appointment.id,
                 title: `${appointment.client} - ${appointment.service}`,
-                start: appointment.date || appointment.start,
-                end: appointment.end || appointment.date || appointment.start,
+                start: new Date(appointment.start || appointment.date),
+                end: new Date(appointment.end || appointment.start || appointment.date),
+                status: appointment.status || "Pendiente",
+                client: appointment.client,
+                barber: appointment.barber,
+                notes: appointment.notes,
                 backgroundColor:
                     appointment.status === "Confirmada"
                         ? "#16a34a"
@@ -49,34 +104,28 @@ function Reservas() {
                         ? "#2563eb"
                         : appointment.status === "Cancelada"
                         ? "#dc2626"
-                        : "#f59e0b",
-                extendedProps: {
-                    status: appointment.status || "Pendiente",
-                    client: appointment.client,
-                    barber: appointment.barber,
-                    notes: appointment.notes
-                }
+                        : "#f59e0b"
             })),
-        [appointments]
+        [reservas]
     );
 
     const nextAppointments = useMemo(
         () =>
-            appointments
+            reservas
                 .slice()
                 .sort((a, b) => new Date(a.date || a.start) - new Date(b.date || b.start))
                 .slice(0, 4),
-        [appointments]
+        [reservas]
     );
 
     const todayAppointments = useMemo(
         () => {
             const today = new Date().toISOString().slice(0, 10);
-            return appointments.filter((appointment) =>
+            return reservas.filter((appointment) =>
                 (appointment.date || appointment.start || "").includes(today)
             );
         },
-        [appointments]
+        [reservas]
     );
 
     const busyBarbers = useMemo(
@@ -94,23 +143,11 @@ function Reservas() {
     );
 
     function handleEventClick(event) {
-        const appointment = appointments.find((item) => String(item.id) === String(event.event.id));
+        const appointment = appointments.find((item) => String(item.id) === String(event.id));
         if (appointment) {
             setSelectedAppointment(appointment);
             setModalOpen(true);
         }
-    }
-
-    async function handleEventDrop(info) {
-        const appointment = appointments.find((item) => String(item.id) === String(info.event.id));
-        if (!appointment) return;
-
-        await editAppointment(appointment.id, {
-            ...appointment,
-            date: info.event.start.toISOString(),
-            start: info.event.start.toISOString(),
-            end: info.event.end ? info.event.end.toISOString() : info.event.start.toISOString()
-        });
     }
 
     function handleNewAppointment() {
@@ -152,18 +189,18 @@ function Reservas() {
                 <header className="reservas-page__header">
                     <div>
                         <h1>Reservas</h1>
-                        <p>Agenda y administra tus citas con el calendario.</p>
+                        <p>Agenda y administra tus reservas con el calendario.</p>
                     </div>
-                    <button onClick={handleNewAppointment}>Nueva cita</button>
+                    <button onClick={handleNewAppointment}>Nueva reserva</button>
                 </header>
 
                 <section className="reservas-dashboard-cards">
                     <div className="card">
-                        <h2>Próximas citas</h2>
+                        <h2>Próximas reservas</h2>
                         <p>{nextAppointments.length}</p>
                     </div>
                     <div className="card">
-                        <h2>Agenda del día</h2>
+                        <h2>Reservas del día</h2>
                         <p>{todayAppointments.length}</p>
                     </div>
                     <div className="card">
@@ -181,12 +218,11 @@ function Reservas() {
                         <AppointmentCalendar
                             events={events}
                             onEventClick={handleEventClick}
-                            onEventDrop={handleEventDrop}
                         />
                     </div>
                     <aside className="reservas-sidebar">
                         <div className="sidebar-section">
-                            <h3>Próximas citas</h3>
+                            <h3>Próximas reservas</h3>
                             {nextAppointments.map((appointment) => (
                                 <AppointmentCard key={appointment.id} appointment={appointment} />
                             ))}
@@ -194,7 +230,10 @@ function Reservas() {
                         <div className="sidebar-section">
                             <h3>Estados</h3>
                             {Object.entries(STATUS_LABELS).map(([status, label]) => (
-                                <AppointmentStatusChip key={status} status={status} />
+                                <div key={status} className="status-row">
+                                    <AppointmentStatusChip status={status} />
+                                    <span>{label}</span>
+                                </div>
                             ))}
                         </div>
                         <div className="sidebar-section">
@@ -218,8 +257,8 @@ function Reservas() {
                     />
                 )}
 
-                {loading && <p>Cargando citas...</p>}
-                {error && <p>Error cargando citas: {error.message || error.toString()}</p>}
+                {loading && <p>Cargando reservas...</p>}
+                {error && <p>Error cargando reservas: {error.message || error.toString()}</p>}
             </div>
         </Layout>
     );

@@ -1,15 +1,14 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --text: #334155;
+  --text-h: #0f172a;
+  --bg: #f8fafc;
+  --border: #e2e8f0;
+  --code-bg: #edf2f7;
+  --accent: #d4af37;
+  --accent-bg: rgba(212, 175, 55, 0.12);
+  --accent-border: rgba(212, 175, 55, 0.5);
+  --social-bg: rgba(248, 250, 252, 0.8);
+  --shadow: rgba(15, 23, 42, 0.08) 0 10px 15px -3px, rgba(15, 23, 42, 0.04) 0 4px 6px -2px;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -17,41 +16,59 @@
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
   margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  text-align: left;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+.container {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 16px;
+  }
 }
 
 #root {
@@ -62,6 +79,7 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  background: var(--bg);
 }
 
 h1,
@@ -75,20 +93,15 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
 }
+
 p {
   margin: 0;
 }
@@ -106,4 +119,350 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* Reservas page styling */
+.reservas-page {
+  display: grid;
+  gap: 24px;
+}
+
+.reservas-page__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.reservas-page__header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.reservas-page__header p {
+  margin: 0;
+  color: #64748b;
+}
+
+.reservas-page__header button {
+  padding: 10px 18px;
+  border-radius: 14px;
+  border: none;
+  background: #d4af37;
+  color: #0f172a;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.reservas-dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.reservas-dashboard-cards .card,
+.reservas-sidebar .sidebar-section,
+.appointment-card,
+.appointment-summary,
+.appointment-modal__content,
+.status-row {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.reservas-dashboard-cards .card {
+  padding: 22px;
+}
+
+.reservas-dashboard-cards .card h2 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+.reservas-dashboard-cards .card p {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.reservas-page__main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.reservas-calendar {
+  min-height: 650px;
+}
+
+.reservas-sidebar {
+  display: grid;
+  gap: 20px;
+}
+
+.sidebar-section {
+  padding: 20px;
+}
+
+.sidebar-section h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.appointment-card {
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.appointment-card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.appointment-card p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.appointment-summary {
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+  background: rgba(212, 175, 55, 0.16);
+}
+
+.status-chip--pendiente {
+  background: rgba(245, 158, 11, 0.16);
+}
+
+.status-chip--confirmada {
+  background: rgba(22, 163, 74, 0.16);
+}
+
+.status-chip--completada {
+  background: rgba(37, 99, 235, 0.16);
+}
+
+.status-chip--cancelada {
+  background: rgba(220, 38, 38, 0.12);
+}
+
+.appointment-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  z-index: 1000;
+}
+
+.appointment-modal__content {
+  width: min(680px, 100%);
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 28px;
+  position: relative;
+}
+
+.appointment-modal__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.appointment-form {
+  display: grid;
+  gap: 16px;
+}
+
+.appointment-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.appointment-form input,
+.appointment-form select,
+.appointment-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.appointment-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.appointment-form button {
+  width: fit-content;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 14px;
+  background: #2563eb;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.18);
+}
+
+.fc-wrapper {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 1024px) {
+  .reservas-page {
+    gap: 20px;
+    padding: 0 12px;
+  }
+
+  .reservas-page__header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .reservas-page__header button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .reservas-dashboard-cards {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .reservas-calendar {
+    min-height: 520px;
+  }
+
+  .reservas-sidebar {
+    display: grid;
+  }
+
+  .sidebar-section,
+  .appointment-card,
+  .appointment-summary,
+  .appointment-modal__content,
+  .status-row {
+    padding: 16px;
+  }
+
+  .status-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fc-wrapper {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 15px;
+  }
+
+  body {
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .reservas-page {
+    gap: 18px;
+    padding: 0 12px;
+  }
+
+  .reservas-page__header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .reservas-page__header button {
+    width: 100%;
+    padding: 12px 14px;
+  }
+
+  .reservas-dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .reservas-calendar {
+    min-height: 520px;
+  }
+
+  .reservas-sidebar {
+    gap: 16px;
+  }
+
+  .sidebar-section,
+  .appointment-card,
+  .appointment-summary,
+  .appointment-modal__content,
+  .status-row {
+    padding: 14px;
+  }
+
+  .status-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .fc-wrapper {
+    padding: 12px;
+  }
+
+  .appointment-form {
+    gap: 14px;
+  }
+
+  .appointment-form button {
+    width: 100%;
+  }
 }

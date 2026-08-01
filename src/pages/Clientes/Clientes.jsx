@@ -37,13 +37,13 @@ function Clientes() {
 
     return (
         <Layout>
-            <Box sx={{ color: "white", display: "grid", gap: 3 }}>
+            <Box sx={{ color: "text.primary", display: "grid", gap: 3 }}>
                 <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
                     <div>
                         <Typography variant="h4">Clientes</Typography>
                         <Typography sx={{ color: "#94a3b8" }}>Administra los clientes y su información de contacto.</Typography>
                     </div>
-                    <Button variant="contained" onClick={handleOpenNew} sx={{ px: 2, py: 1, minWidth: 140, fontSize: 14 }}>
+                    <Button variant="contained" onClick={handleOpenNew} sx={{ px: 2, py: 0.75, minWidth: 120, fontSize: 13 }}>
                         Nuevo cliente
                     </Button>
                 </Stack>

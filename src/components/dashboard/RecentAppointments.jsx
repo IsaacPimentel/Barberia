@@ -31,8 +31,8 @@ export default function RecentAppointments() {
     <Paper
       sx={{
         p: 3,
-        bgcolor: "#1F1F1F",
-        color: "white",
+        bgcolor: "background.paper",
+        color: "text.primary",
         height: "100%",
       }}
     >
