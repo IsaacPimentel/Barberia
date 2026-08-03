@@ -3,6 +3,7 @@ import { Box, Button, CircularProgress, Stack, Typography } from "@mui/material"
 import Layout from "../../components/layout/Layout";
 import useServicios from "../../hooks/useServicios";
 import ServiciosCarousel from "../../components/servicios/ServiciosCarousel";
+import ServiciosCatalog from "../../components/servicios/ServiciosCatalog";
 import ServicioModal from "../../components/servicios/ServicioModal";
 
 function Servicios() {
@@ -59,7 +60,12 @@ function Servicios() {
                 ) : error ? (
                     <Typography sx={{ color: "#f87171" }}>Error al cargar servicios.</Typography>
                 ) : (
-                    <ServiciosCarousel servicios={servicios} onEdit={handleOpenEdit} onDelete={handleDelete} />
+                    <>
+                        <ServiciosCarousel servicios={servicios} onEdit={handleOpenEdit} onDelete={handleDelete} />
+                        <Box sx={{ mt: 4 }}>
+                            <ServiciosCatalog servicios={servicios} />
+                        </Box>
+                    </>
                 )}
 
                 <ServicioModal

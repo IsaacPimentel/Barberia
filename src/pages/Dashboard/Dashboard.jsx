@@ -16,15 +16,17 @@ const highlights = [
 export default function Dashboard() {
     return (
         <Layout>
-            <Box sx={{ color: "text.primary", display: "grid", gap: 4 }}>
+            <Box sx={{ color: "text.primary", display: "flex", flexDirection: "column", gap: 4, alignItems: "center", width: "100%" }}>
                 <Box
                     sx={{
+                        width: "100%",
                         position: "relative",
                         overflow: "hidden",
                         borderRadius: 4,
                         minHeight: 420,
                         background: "radial-gradient(circle at top, rgba(212,175,55,0.14), transparent 35%), linear-gradient(180deg, rgba(248,250,252,0.96), rgba(248,250,252,0.96)), #FFFFFF",
-                        p: { xs: 4, md: 6 }
+                        px: { xs: 2, md: 3 },
+                        py: { xs: 4, md: 6 }
                     }}
                 >
                     <Box
@@ -35,41 +37,43 @@ export default function Dashboard() {
                             opacity: 0.55
                         }}
                     />
-                    <Stack sx={{ position: "relative", zIndex: 1, height: "100%" }} justifyContent="space-between">
-                        <Box>
-                            <Typography sx={{ letterSpacing: 2, color: "primary.main", fontWeight: 700, mb: 1 }}>
-                                NOIR BARBERS
-                            </Typography>
-                            <Typography variant="h3" sx={{ fontWeight: 700, mb: 2, maxWidth: 640, color: "text.primary" }}>
-                                Precision Cuts for Modern Gentlemen
-                            </Typography>
-                            <Typography sx={{ color: "text.secondary", maxWidth: 640, mb: 4 }}>
-                                Premium grooming experience with curated services for the modern man. Create more appointments, increase ticket value, and keep clients returning.
-                            </Typography>
-                            <Stack direction="row" spacing={2} flexWrap="wrap">
-                                <Button variant="contained" sx={{ bgcolor: "#d4af37", color: "text.primary", px: 4, textTransform: "none", fontWeight: 700 }}>
-                                    Book Now
-                                </Button>
-                                <Button variant="outlined" sx={{ borderColor: "#d4af37", color: "text.primary", px: 4, textTransform: "none", fontWeight: 700 }}>
-                                    Explore Services
-                                </Button>
-                            </Stack>
-                        </Box>
+                    <Box sx={{ width: "100%", maxWidth: 1280, mx: "auto", position: "relative", zIndex: 1, height: "100%" }}>
+                        <Stack sx={{ height: "100%", alignItems: "center", textAlign: "center" }} justifyContent="space-between">
+                            <Box sx={{ width: "100%", maxWidth: 740 }}>
+                                <Typography sx={{ letterSpacing: 2, color: "primary.main", fontWeight: 700, mb: 1 }}>
+                                    NOIR BARBERS
+                                </Typography>
+                                <Typography variant="h3" sx={{ fontWeight: 700, mb: 2, maxWidth: 640, mx: "auto", color: "text.primary" }}>
+                                    Precision Cuts for Modern Gentlemen
+                                </Typography>
+                                <Typography sx={{ color: "text.secondary", maxWidth: 640, mx: "auto", mb: 4 }}>
+                                    Premium grooming experience with curated services for the modern man. Create more appointments, increase ticket value, and keep clients returning.
+                                </Typography>
+                                <Stack direction="row" spacing={2} flexWrap="wrap" justifyContent="center">
+                                    <Button variant="contained" sx={{ bgcolor: "#d4af37", color: "text.primary", px: 4, textTransform: "none", fontWeight: 700 }}>
+                                        Book Now
+                                    </Button>
+                                    <Button variant="outlined" sx={{ borderColor: "#d4af37", color: "text.primary", px: 4, textTransform: "none", fontWeight: 700 }}>
+                                        Explore Services
+                                    </Button>
+                                </Stack>
+                            </Box>
 
-                        <Grid container spacing={2} sx={{ mt: 2 }}>
-                            {heroStats.map((item) => (
-                                <Grid item xs={12} sm={4} key={item.label}>
-                                    <Box sx={{ p: 3, borderRadius: 3, bgcolor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                                        <Typography sx={{ color: "#94a3b8", mb: 1 }}>{item.label}</Typography>
-                                        <Typography variant="h5" sx={{ fontWeight: 700 }}>{item.value}</Typography>
-                                    </Box>
-                                </Grid>
-                            ))}
-                        </Grid>
-                    </Stack>
+                            <Grid container spacing={2} justifyContent="center" sx={{ mt: 2 }}>
+                                {heroStats.map((item) => (
+                                    <Grid item xs={12} sm={4} key={item.label}>
+                                        <Box sx={{ p: 3, borderRadius: 3, bgcolor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                                            <Typography sx={{ color: "#94a3b8", mb: 1 }}>{item.label}</Typography>
+                                            <Typography variant="h5" sx={{ fontWeight: 700 }}>{item.value}</Typography>
+                                        </Box>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </Stack>
+                    </Box>
                 </Box>
 
-                <Grid container spacing={3}>
+                <Grid container spacing={3} justifyContent="center">
                     <Grid item xs={12} md={8}>
                         <Box sx={{ p: 4, borderRadius: 4, bgcolor: "background.paper", border: "1px solid rgba(15,23,42,0.08)" }}>
                             <Typography variant="h6" sx={{ mb: 2, color: "primary.main" }}>
